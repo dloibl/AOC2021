@@ -11,6 +11,8 @@ def count_fished_exp(count_list, days=80):
         for index, count in enumerate(count_list):
             count_list[index] = old[(index+1) % 9]
 
+        count_list[6] += old[0]    
+
     return sum(count_list)
 
 
