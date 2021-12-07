@@ -18,6 +18,6 @@ def count_fished_exp(count_list, days=80):
     return sum(count_list)
 
 
-print(f"The answer to part 1 is {(count_fished_exp(lantern_fishes_count, 80))}")
+print(f"The answer to part 1 is {(count_fished_exp(lantern_fishes_count.copy(), 80))}")
 
-print(f"The answer to part 2 is {(count_fished_exp(lantern_fishes_count, 256))}")
+print(f"The answer to part 2 is {(count_fished_exp(lantern_fishes_count.copy(), 256))}")
