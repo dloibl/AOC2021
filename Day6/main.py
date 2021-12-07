@@ -9,7 +9,7 @@ def count_fished_exp(count_list, days=80):
     for day in range(0, days):
         if day < 10:
             print(day, count_list)
-        old = count_list
+        old = count_list.copy()
         for index, count in enumerate(count_list):
             count_list[index] = old[(index+1) % 9]
 
