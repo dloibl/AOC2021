@@ -3,12 +3,9 @@ data = open("input.txt", "r").readlines()[0]
 lantern_fishes = [int(i) for i in data.split(",")]
 
 lantern_fishes_count = [lantern_fishes.count(i) for i in range(0,9)]
-print(lantern_fishes_count)
 
 def count_fished_exp(count_list, days=80):
     for day in range(0, days):
-        if day < 10:
-            print(day, count_list)
         old = count_list.copy()
         for index, count in enumerate(count_list):
             count_list[index] = old[(index+1) % 9]
