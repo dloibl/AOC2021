@@ -5,8 +5,8 @@ lantern_fishes = [int(i) for i in data.split(",")]
 lantern_fishes_count = [lantern_fishes.count(i) for i in range(0,8)]
 
 
-def count_fished_exp(count_list, for_day=80):
-    for day in range(0, day):
+def count_fished_exp(count_list, days=80):
+    for day in range(0, days):
         old = count_list
         for index, count in enumerate(count_list):
             count_list[index] = old[(index+1) % 9]
