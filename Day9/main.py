@@ -31,7 +31,8 @@ for x in range(0,m):
         else:
             neighbors = [data[x-1][y], data[x+1][y], data[x][y-1], data[x][y+1]]
 
-        print("nei")
+        neighbors = [int(i) for i in neighbors]
+    
         print(neighbors)
    
         if val < min(neighbors):
