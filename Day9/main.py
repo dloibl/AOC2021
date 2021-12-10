@@ -1,7 +1,7 @@
 data = open("input.txt", "r").readlines()
 
-m = len(data)-1
-n = len(data[0])
+m = len(data)
+n = len(data[0]-1)
 low_points = []
 
 print(m)
