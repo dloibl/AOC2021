@@ -9,7 +9,7 @@ print(n)
 
 for x in range(0,m):
     for y in range(0,n):
-        val = data[x][y]
+        val = int(data[x][y])
         neighbors = []
         if x == 0 and y == 0:
             neighbors = [data[x+1][y], data[x][y+1]]
@@ -30,7 +30,8 @@ for x in range(0,m):
         else:
             neighbors = [data[x-1][y], data[x+1][y], data[x][y-1], data[x][y+1]]
 
-        if val < min(neighbors):
+        nn = [int(i) for i in neighbors]
+        if val < min(nn):
             low_points.append(val+1)
 
 print(low_points)
