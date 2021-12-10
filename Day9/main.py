@@ -30,7 +30,7 @@ for x in range(0,m):
         else:
             neighbors = [data[x-1][y], data[x+1][y], data[x][y-1], data[x][y+1]]
 
-        if val < min(neighbors:
+        if val < min(neighbors):
             low_points.append(val+1)
 
 print(low_points)
