@@ -12,23 +12,23 @@ for x in range(0,m):
         val = data[x][y]
         neighbors = []
         if x == 0 and y == 0:
-            neighbors = [[data[x+1][y], data[x][y+1]]
-        elif x == 0 and y ==n-1:
-            neighbors = [[data[x+1][y], data[x][y-1]]
+            neighbors = [data[x+1][y], data[x][y+1]]
+        elif x == 0 and y == n-1:
+            neighbors = [data[x+1][y], data[x][y-1]]
         elif y == 0 and x == m-1:
-            neighbors = [[data[x][y+1], data[x-1][y],data[x][y+1]]
+            neighbors = [data[x][y+1], data[x-1][y],data[x][y+1]]
         elif y == n-1 and x == m-1:
-             neighbors = [[data[x-1][y], data[x][y-1]]
+             neighbors = [data[x-1][y], data[x][y-1]]
         elif x == 0:
-            neighbors = [[data[x+1][y], data[x][y-1], data[x][y+1]]
+            neighbors = [data[x+1][y], data[x][y-1], data[x][y+1]]
         elif y == 0:
-             neighbors = [[data[x][y+1], data[x-1][y], data[x+1][y]]
+             neighbors = [data[x][y+1], data[x-1][y], data[x+1][y]]
         elif y == n-1:
-            neighbors = [[data[x-1][y], data[x+1][y], data[x][y-1]]
+            neighbors = [data[x-1][y], data[x+1][y], data[x][y-1]]
         elif x == m-1:
-            neighbors = [[data[x][y+1], data[x][y-1], data[x-1][y]]
+            neighbors = [data[x][y+1], data[x][y-1], data[x-1][y]]
         else:
-            neighbors = [[data[x-1][y], data[x+1][y], data[x][y-1], data[x][y+1]]
+            neighbors = [data[x-1][y], data[x+1][y], data[x][y-1], data[x][y+1]]
 
         if val < min(neighbors:
             low_points.append(val+1)
