@@ -22,9 +22,10 @@ def traverse(visited, graph, cave, count):
     if is_small(cave) and not cave in visited:
         visited.add(cave)
         print("visited",visited)
-        for neighbour in graph[cave]:
-            traverse(visited, graph, neighbour, count)
-    if not is_small(cave):
+        if cave in graph:
+            for neighbour in graph[cave]:
+                traverse(visited, graph, neighbour, count)
+    elif not is_small(cave) and cave in graph:
         for neighbour in graph[cave]:
             traverse(visited, graph, neighbour, count)
     return count        
