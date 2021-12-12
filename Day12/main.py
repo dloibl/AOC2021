@@ -16,19 +16,22 @@ visited = set()
 def is_small(cave):
     return cave == cave.lower()
 
-def traverse(visited, graph, cave, count):
+nr_path = 0
+
+def traverse(visited, graph, cave):
     if cave == "end":
-        count += 1
+        nr_path += 1
     if is_small(cave) and not cave in visited:
         visited.add(cave)
         print("visited",visited)
         if cave in graph:
             for neighbour in graph[cave]:
-                traverse(visited, graph, neighbour, count)
+                traverse(visited, graph, neighbour)
     elif not is_small(cave) and cave in graph:
         for neighbour in graph[cave]:
-            traverse(visited, graph, neighbour, count)
-    return count        
+            traverse(visited, graph, neighbour)     
 
 
-print(traverse(visited, graph, "start", 0))       
+traverse(visited, graph, "start")
+
+print("The answer to part 1 is ",nr_path)
