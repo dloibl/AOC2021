@@ -4,7 +4,7 @@ graph = {}
 
 for edge in data:
     [a,b] = edge.split("-")
-    if node[a] is None:
+    if graph[a] is None:
         graph[a] = [b]
     else:
         graph[a].append(b)
