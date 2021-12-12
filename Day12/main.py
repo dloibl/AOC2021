@@ -3,13 +3,11 @@ data = open("input.txt", "r").readlines()
 graph = {}
 
 for edge in data:
-    e = edge.split("-")
-    from = e[0]
-    to = e[1]
-    if node[from] is None:
-        graph[from] = [to]
+    [a,b] = edge.split("-")
+    if node[a] is None:
+        graph[a] = [b]
     else:
-        graph[from].append(to)
+        graph[a].append(b)
 
 print(graph)
 
