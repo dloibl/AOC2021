@@ -3,7 +3,7 @@ data = open("input.txt", "r").readlines()
 graph = {}
 
 for edge in data:
-    [a,b] = edge.split("-")
+    [a,b] = edge.strip().split("-")
     if not a in graph:
         graph[a] = [b]
     else:
