@@ -2,37 +2,44 @@ data = open("input.txt", "r").readlines()
 
 graph = {}
 
+
 for edge in data:
-    [a,b] = edge.strip().split("-")
+    [a, b] = edge.strip().split("-")
     if not a in graph:
         graph[a] = [b]
     else:
         graph[a].append(b)
+    if not b in graph:
+        graph[b] = [a]
+    else:
+        graph[b].append(a)
 
-print(graph)
 
 visited = set()
+
 
 def is_small(cave):
     return cave == cave.lower()
 
-nr_path = 0
 
-def traverse(visited, graph, cave):
-    global nr_path
-    if cave == "end":
-        nr_path += 1
-    if is_small(cave) and not cave in visited:
+def traverse(visited, graph, cave, count, path):
+    if is_small(cave):
         visited.add(cave)
-        print("visited",visited)
+
+    path.append(cave)
+
+    if cave == "end":
+        count += 1
+    else:
         if cave in graph:
-            for neighbour in graph[cave]:
-                traverse(visited, graph, neighbour)
-    elif not is_small(cave) and cave in graph:
-        for neighbour in graph[cave]:
-            traverse(visited, graph, neighbour)     
+            for n in graph[cave]:
+                if not is_small(n) or not n in visited:
+                    count = traverse(visited, graph, n, count, path)
+
+    path.pop()
+    if cave in visited:
+        visited.remove(cave)
+    return count
 
 
-traverse(visited, graph, "start")
-
-print("The answer to part 1 is ", nr_path)
+print("The answer to part 1 is ", traverse(visited, graph, "start", 0, []))
