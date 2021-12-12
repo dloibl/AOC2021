@@ -3,7 +3,9 @@ data = open("input.txt", "r").readlines()
 graph = {}
 
 for edge in data:
-    [from,to] = edge.split("-")
+    e = edge.split("-")
+    from = e[0]
+    to = e[1]
     if node[from] is None:
         graph[from] = [to]
     else:
