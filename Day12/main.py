@@ -16,7 +16,7 @@ visited = set()
 def is_small(cave):
     return cave == cave.lower()
 
-nr_path = 0
+global nr_path = 0
 
 def traverse(visited, graph, cave):
     if cave == "end":
